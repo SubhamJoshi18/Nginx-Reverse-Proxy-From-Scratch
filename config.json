@@ -1,0 +1,41 @@
+{
+    "server": {
+      "listen": 80,
+      "workers": 4,
+      "upstreams": [
+        {
+          "id": "node1",
+          "url": "http://localhost:8000"
+        },
+        {
+          "id": "node2",
+          "url": "http://localhost:8001"
+        }
+      ],
+      "headers": [
+        {
+          "key": "x-forward-for",
+          "value": "$ip"
+        },
+        {
+          "key": "Authorization",
+          "value": "Bearer token "
+        }
+      ],
+      "rules": [
+        {
+          "path": "/",
+          "upstreams": [
+            "node1",
+            "node2"
+          ]
+        },
+        {
+          "path": "/admin",
+          "upstream": [
+            "node2"
+          ]
+        }
+      ]
+    }
+  }

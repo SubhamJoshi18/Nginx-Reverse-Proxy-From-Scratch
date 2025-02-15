@@ -1,0 +1,1 @@
+{"root":["./src/index.ts","./src/types.ts","./src/configs/config.ts","./src/nginxservers/nginxserver.ts","./src/validation/config.validation.ts","./src/validation/server.validation.ts"],"version":"5.7.3"}
